@@ -1,4 +1,5 @@
 #include "animation.h"
+
 #include <stdlib.h>
 #include <zephyr/kernel.h>
 
@@ -81,7 +82,7 @@ void draw_animation(lv_obj_t *canvas, struct zmk_widget_screen *widget) {
   lv_animimg_start(art);
 
   // fix the error compiling if the images are not used
-  lv_obj_t *art2 = NULL; // Para la segunda imagen, si es necesario
+  lv_obj_t *art2 = NULL;  // Para la segunda imagen, si es necesario
 #endif
 
 #if IS_ENABLED(CONFIG_NICE_OLED_POKEMON_ANIMATION)
@@ -94,21 +95,21 @@ void draw_animation(lv_obj_t *canvas, struct zmk_widget_screen *widget) {
   lv_animimg_start(art);
 
   // fix the error compiling if the images are not used
-  lv_obj_t *art2 = NULL; // Para la segunda imagen, si es necesario
+  lv_obj_t *art2 = NULL;  // Para la segunda imagen, si es necesario
 #endif
 
 #if IS_ENABLED(CONFIG_NICE_OLED_VIM) || IS_ENABLED(CONFIG_NICE_OLED_VIP_MARCOS)
   lv_obj_t *art = NULL;
-  lv_obj_t *art2 = NULL; // Para la segunda imagen, si es necesario
+  lv_obj_t *art2 = NULL;  // Para la segunda imagen, si es necesario
 
 #if IS_ENABLED(CONFIG_NICE_OLED_VIM)
   art = lv_img_create(widget->obj);
-  lv_img_set_src(art, FIXED_IMAGE_1); // Fija la primera imagen
+  lv_img_set_src(art, FIXED_IMAGE_1);  // Fija la primera imagen
 #endif
 
-#if IS_ENABLED(CONFIG_NICE_OLED_VIM)
+#if IS_ENABLED(CONFIG_NICE_OLED_VIP_MARCOS)
   art2 = lv_img_create(widget->obj);
-  lv_img_set_src(art2, FIXED_IMAGE_2); // Fija la segunda imagen
+  lv_img_set_src(art2, FIXED_IMAGE_2);  // Fija la segunda imagen
 #endif
 
   // Si no se utilizan las imágenes fijas, se puede usar la lógica aleatoria
@@ -136,7 +137,7 @@ void draw_animation(lv_obj_t *canvas, struct zmk_widget_screen *widget) {
   }
   if (art2) {
     lv_obj_align(art2, LV_ALIGN_TOP_LEFT, 2,
-                 0); // Ajusta la posición de la segunda imagen
+                 0);  // Ajusta la posición de la segunda imagen
     // lv_obj_align(art2, LV_ALIGN_TOP_LEFT, 36, 50); // Ajusta la posición de
     // la segunda imagen
   }
