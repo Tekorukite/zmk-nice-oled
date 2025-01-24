@@ -1,7 +1,9 @@
 #include "wpm.h"
-#include "../assets/custom_fonts.h"
+
 #include <math.h>
 #include <zephyr/kernel.h>
+
+#include "../assets/custom_fonts.h"
 
 LV_IMG_DECLARE(gauge);
 LV_IMG_DECLARE(grid);
@@ -28,9 +30,9 @@ static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
   lv_draw_line_dsc_t line_dsc;
   init_line_dsc(&line_dsc, LVGL_FOREGROUND, 1);
 
-  int centerX = 12; // 16 default
-  int centerY = 90; // 100 gut, 66 default
-  int offset = 5;   // 5 def, largo de la aguja
+  int centerX = 12;  // 16 default
+  int centerY = 90;  // 100 gut, 66 default
+  int offset = 5;    // 5 def, largo de la aguja
   int value = state->wpm[9];
 
 #if IS_ENABLED(CONFIG_NICE_OLED_GEM_ANIMATION_WPM_FIXED_RANGE)
@@ -43,12 +45,9 @@ static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
     }
   }
 #endif
-  if (max == 0)
-    max = 100;
-  if (value < 0)
-    value = 0;
-  if (value > max)
-    value = max;
+  if (max == 0) max = 100;
+  if (value < 0) value = 0;
+  if (value > max) value = max;
 
   float radius = 25.45585;
   float angleDeg = 225 + ((float)value / max) * 90;
@@ -209,8 +208,8 @@ static void draw_bongocat(lv_obj_t *canvas, const struct status_state *state) {
 }
 
 void draw_wpm_status(lv_obj_t *canvas, const struct status_state *state) {
-  draw_gauge(canvas, state);
-  draw_needle(canvas, state);
+  // draw_gauge(canvas, state);
+  // draw_needle(canvas, state);
   draw_grid(canvas);
   draw_graph(canvas, state);
   draw_label(canvas, state);
