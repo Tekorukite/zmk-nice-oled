@@ -113,13 +113,13 @@ void draw_animation(lv_obj_t *canvas, struct zmk_widget_screen *widget) {
 #endif
 
   // Si no se utilizan las imágenes fijas, se puede usar la lógica aleatoria
-  if (!art && !art2) {
-    art = lv_img_create(widget->obj);
-    int length = sizeof(anim_imgs) / sizeof(anim_imgs[0]);
-    srand(k_uptime_get_32());
-    int random_index = rand() % length;
-    lv_img_set_src(art, anim_imgs[random_index]);
-  }
+  // if (!art && !art2) {
+  //   art = lv_img_create(widget->obj);
+  //   int length = sizeof(anim_imgs) / sizeof(anim_imgs[0]);
+  //   srand(k_uptime_get_32());
+  //   int random_index = rand() % length;
+  //   lv_img_set_src(art, anim_imgs[random_index]);
+  // }
 #endif
 
   // Alineación de las imágenes
